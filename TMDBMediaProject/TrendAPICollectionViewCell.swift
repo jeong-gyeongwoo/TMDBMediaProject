@@ -15,6 +15,8 @@ class TrendAPICollectionViewCell: UICollectionViewCell {
     @IBOutlet var voteAverageLabel: UILabel!
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieMember: UILabel!
+    @IBOutlet var borderLabel: UILabel!
+    
     
     
     
