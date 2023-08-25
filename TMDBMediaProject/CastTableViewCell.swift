@@ -13,3 +13,5 @@ class CastTableViewCell: UITableViewCell {
     @IBOutlet var castNameLabel: UILabel!
     @IBOutlet var castRoleLabel: UILabel!
 }
+
+

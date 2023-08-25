@@ -40,7 +40,7 @@ class SimilarVideoViewController: UIViewController {
         }
        
         group.notify(queue: .main) {
-            print("END")
+            //print("END")
         }
     }
 
@@ -62,7 +62,13 @@ class SimilarVideoViewController: UIViewController {
 
 }
 
-
-//dispatchGroupNotify() 통신에러
-// 세그먼트 씬 command + n  view, viewController 연결 후 에러
+//과제: TMDB video, similar API 호출,dispatchgroup + 세그먼트 선택하면 데이터가 갱신
+//에러
+//1. dispatchGroupNotify() 통신에러
+//2. 세그먼트 씬 command + n  view, viewController 연결 후 에러
 // 세그먼트 씬 텍스트 바꾸는법?
+
+
+//보통 하나의 화면에서 하나의 뷰컨트롤러가 관리한다?
+//register
+//뷰컨트롤러 위에 삭제하니까 에러 사라짐

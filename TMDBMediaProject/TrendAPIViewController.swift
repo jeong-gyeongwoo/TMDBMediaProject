@@ -10,11 +10,11 @@ import Alamofire
 
 class TrendAPIViewController: UIViewController {
     var trendData: TrendStruct = TrendStruct(page: 1, results: [], totalPages: 1, totalResults: 1){
-            didSet {
-                //print("**Changed")
-               movieCollectionView.reloadData()
-            }
+        didSet {
+            //print("**Changed")
+            movieCollectionView.reloadData()
         }
+    }
     var genres: [Int:String] = [
         28 : "Action",
         12 : "Adventure",
@@ -36,13 +36,15 @@ class TrendAPIViewController: UIViewController {
         10752 : "War",
         37 : "Western"
     ]
-    var cast: [String] = [] {
+    var cast: [[String]] = [[]] {
         didSet {
-            print("**Changed")
+            //print("**Changed")
             movieCollectionView.reloadData()
         }
     }
-
+    var castString = ""
+    
+    
     @IBOutlet var movieCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -51,19 +53,60 @@ class TrendAPIViewController: UIViewController {
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self
         setCollectionViewLayout()
-        callRequest()
-        //movieCollectionView.reloadData()
+        dispatchGroupEnterLeave()
+                
     }
     
-    func callRequest() {
+    func dispatchGroupEnterLeave() {
+        let group = DispatchGroup()
+        
+        group.enter()
+        trendingCallRequest() { data in
+            self.trendData = data
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+           // print("END")
+            self.creditCallRequest()
+            self.movieCollectionView.reloadData()
+        }
+        
+    }
+    
+    
+    func trendingCallRequest(completionHandler: @escaping (TrendStruct) -> ()) {
         
         let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=\(APIKey.TMDBKey)"
         AF.request(url, method: .get).validate()
             .responseDecodable(of: TrendStruct.self) { response in
-                guard let value = response.value else { return }
-                self.trendData = value
+                switch response.result {
+                case .success(let value):
+                    completionHandler(value)
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+                
             }
+        
     }
+    
+    func creditCallRequest() {
+            for i in 0...trendData.results.count - 1 {
+                let creditUrl = "https://api.themoviedb.org/3/movie/\(trendData.results[i].id)/credits?api_key=\(APIKey.TMDBKey)"
+    
+                AF.request(creditUrl, method: .get).validate()
+                    .responseDecodable(of: CreditStruct.self) { data in
+                        guard let value = data.value else { return }
+    
+                         for i in 0...4 {
+                            self.cast.append([value.cast[i].name])
+                        }
+                    // print(self.cast,"11111111111111111111")
+                    }
+            }
+        }
+    
 }
 extension TrendAPIViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -84,24 +127,19 @@ extension TrendAPIViewController: UICollectionViewDelegate, UICollectionViewData
         cell.borderLabel.layer.borderWidth = 1
         cell.borderLabel.layer.borderColor = UIColor(named: "black")?.cgColor
         
-        let creditUrl = "https://api.themoviedb.org/3/movie/\(trendData.results[indexPath.row].id)/credits?api_key=\(APIKey.TMDBKey)"
-        AF.request(creditUrl, method: .get).validate()
-            .responseDecodable(of: CreditStruct.self) { data in
-                guard let value = data.value else { return }
-                self.cast.removeAll()
-                for i in 0...5 {
-                    self.cast.append(value.cast[i].name)
-                }
-                let string = self.cast.joined(separator: " ")
-                cell.movieMember.text = "메인 출연진: \n\(string)"
-                self.movieCollectionView.reloadData()
-            }
+        
+        //print(self.cast,"22222222222222222222")
+        // var string = self.cast.joined(separator: " ")
+        //self.cast.removeSubrange(0...4)
+        //print(self.cast,"3333333333333333333333333")
+        cell.movieMember.text = "메인 출연진: \n\(cast)"
         
         let url = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2\(trendData.results[indexPath.item].posterPath)"
         cell.movieImageView.kf.setImage(with: URL(string: url))
-      
+
         return cell
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "CreditAPIViewController") as! CreditAPIViewController
@@ -126,9 +164,4 @@ extension TrendAPIViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
-
-
-
-
-
-
+// creditCallRequest() 실행하고 배우들 이름을 배열에 넣고 cellForItemAt에서 셀마다 나눠 넣는법

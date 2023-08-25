@@ -27,6 +27,7 @@
 		F4465AC02A92195D0042DE62 /* VideoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4465ABF2A92195D0042DE62 /* VideoStruct.swift */; };
 		F45131192A8F7FEE000F612E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F45131182A8F7FEE000F612E /* Kingfisher */; };
 		F451311B2A8F820D000F612E /* CreditStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451311A2A8F820D000F612E /* CreditStruct.swift */; };
+		F4E77F332A9382C000D1EBF1 /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77F322A9382C000D1EBF1 /* OverViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		F4465ABD2A9218350042DE62 /* SimilarStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarStruct.swift; sourceTree = "<group>"; };
 		F4465ABF2A92195D0042DE62 /* VideoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStruct.swift; sourceTree = "<group>"; };
 		F451311A2A8F820D000F612E /* CreditStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditStruct.swift; sourceTree = "<group>"; };
+		F4E77F322A9382C000D1EBF1 /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				F41DC3952A891E1100147A68 /* .gitignore */,
 				F41DC3992A891F2400147A68 /* APIKey.swift */,
 				F41DC3872A890D3F00147A68 /* Main.storyboard */,
+				F4E77F322A9382C000D1EBF1 /* OverViewTableViewCell.swift */,
 				F451311A2A8F820D000F612E /* CreditStruct.swift */,
 				F41DC3A42A89257600147A68 /* TrendAPICollectionViewCell.swift */,
 				F41DC38A2A890D4000147A68 /* Assets.xcassets */,
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E77F332A9382C000D1EBF1 /* OverViewTableViewCell.swift in Sources */,
 				F4465AC02A92195D0042DE62 /* VideoStruct.swift in Sources */,
 				F42D9FEC2A8A560B0084CA79 /* TrendStruct.swift in Sources */,
 				F41DC3A52A89257600147A68 /* TrendAPICollectionViewCell.swift in Sources */,
