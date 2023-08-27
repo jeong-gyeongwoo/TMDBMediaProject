@@ -2,7 +2,7 @@
 //  SimilarStruct.swift
 //  TMDBMediaProject
 //
-//  Created by 정경우 on 2023/08/20.
+//  Created by 정경우 on 2023/08/27.
 //
 
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
@@ -13,7 +13,7 @@
 import Foundation
 
 // MARK: - Info
-struct SimilarInfo: Codable {
+struct SimilarStruct: Codable {
     let page: Int
     let results: [SimilarResult]
     let totalPages, totalResults: Int
@@ -31,8 +31,7 @@ struct SimilarResult: Codable {
     let backdropPath: String?
     let genreIDS: [Int]
     let id: Int
-    let originalLanguage: String
-    let originalTitle, overview: String
+    let originalLanguage, originalTitle, overview: String
     let popularity: Double
     let posterPath, releaseDate, title: String
     let video: Bool

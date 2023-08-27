@@ -18,6 +18,7 @@ class CreditAPIViewController: UIViewController {
     var castRole:[String] = []
     var overview = ""
     var creditData: CreditStruct = CreditStruct(id: 1, cast: [], crew: [])
+    var isExpand = false
     
     @IBOutlet var movieTitleLabel: UILabel!
     @IBOutlet var frontImageView: UIImageView!
@@ -28,15 +29,15 @@ class CreditAPIViewController: UIViewController {
         super.viewDidLoad()
         
         callRequest(movieID: movieID)
-        //찾아보기
         //creditAPITableView.rowHeight = UITableView.automaticDimension
-        creditAPITableView.rowHeight = 120
+        //creditAPITableView.estimatedRowHeight = 200
+        creditAPITableView.rowHeight = 200
         creditAPITableView.delegate = self
         creditAPITableView.dataSource = self
+        
         navigationController?.navigationBar.topItem?.title = ""
         title = "출연/제작"
         
-        // print(movieCast,"111111111111111111")
     }
     
     func callRequest(movieID: Int) {
@@ -47,9 +48,9 @@ class CreditAPIViewController: UIViewController {
             .responseDecodable(of: CreditStruct.self) { data in
                 switch data.result {
                 case .success(let value):
-                    for i in 0...4 {
+                    for i in 0...5 {
                         self.movieCast.append(value.cast[i].name)
-                        self.castRole.append(value.cast[i].character!)
+                        self.castRole.append(value.cast[i].character ?? "none")
                     }
                     self.creditData = value
                     self.creditAPITableView.reloadData()
@@ -70,33 +71,64 @@ class CreditAPIViewController: UIViewController {
 
 extension CreditAPIViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 셀 2개의 갯수
-       // print(movieCast.count)
-        return  movieCast.count
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return  movieCast.count
+        }
+        return 0
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let castCell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell") as? CastTableViewCell else { return UITableViewCell() }
-        //        guard let overViewCell = tableView.dequeueReusableCell(withIdentifier: "OverViewTableViewCell") as? OverViewTableViewCell else { return UITableViewCell() }
         
-        
-        let url = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2\(creditData.cast[indexPath.row].profilePath!)"
-        castCell.castImageView.kf.setImage(with: URL(string: url))
-        
-        castCell.castNameLabel.text = movieCast[indexPath.row]
-        castCell.castRoleLabel.text = castRole[indexPath.row]
-        
-        return castCell
+        if indexPath.section == 0 {
+            guard let overViewCell = tableView.dequeueReusableCell(withIdentifier: "OverViewTableViewCell") as? OverViewTableViewCell else { return UITableViewCell() }
+            overViewCell.overviewLabel.text = overview
+            overViewCell.overviewLabel.numberOfLines = isExpand ? 0 : 3
+
+            return overViewCell
+            
+        } else if indexPath.section == 1 {
+            guard let castCell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell") as? CastTableViewCell else { return UITableViewCell() }
+            
+            let url = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2\(creditData.cast[indexPath.row].profilePath!)"
+            castCell.castImageView.kf.setImage(with: URL(string: url))
+            castCell.castNameLabel.text = movieCast[indexPath.row]
+            castCell.castRoleLabel.text = castRole[indexPath.row]
+            
+            return castCell
+        }
+        return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        isExpand.toggle()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Overview"
+        } else {
+            return  "Cast"
+        }
+    }
+    
 }
 
 
-// 글씨 안 잘리게 레이아웃 변경하기
-// 셀 2개로 추가
-//tableView.reloadRows(at: [indexPath], with: .fade)
-
-
-// print(movieCast.count) 왜 3번 찍히는지
-// 캐릭터만 왜 닐값?
+// 현상 automaticDimension, estimatedRowHeight
+//automatic 알아보기 접히는 이유
+// layout 설정 문제?? 

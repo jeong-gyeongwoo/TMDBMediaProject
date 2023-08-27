@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40290AA2A9B29B4001A985A /* StoryBoardOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40290A92A9B29B4001A985A /* StoryBoardOnBoardingViewController.swift */; };
+		F40290AD2A9B32BD001A985A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F40290AC2A9B32BD001A985A /* SnapKit */; };
+		F40290AF2A9B5C30001A985A /* SimilarStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40290AE2A9B5C30001A985A /* SimilarStruct.swift */; };
 		F41DC3822A890D3F00147A68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41DC3812A890D3F00147A68 /* AppDelegate.swift */; };
 		F41DC3842A890D3F00147A68 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41DC3832A890D3F00147A68 /* SceneDelegate.swift */; };
 		F41DC3862A890D3F00147A68 /* TrendAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41DC3852A890D3F00147A68 /* TrendAPIViewController.swift */; };
@@ -23,7 +26,6 @@
 		F4465AAC2A91ABA50042DE62 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4465AAB2A91ABA50042DE62 /* CastTableViewCell.swift */; };
 		F4465ABA2A91F7030042DE62 /* SimilarVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4465AB92A91F7030042DE62 /* SimilarVideoViewController.swift */; };
 		F4465ABC2A91F7620042DE62 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4465ABB2A91F7620042DE62 /* APIManager.swift */; };
-		F4465ABE2A9218350042DE62 /* SimilarStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4465ABD2A9218350042DE62 /* SimilarStruct.swift */; };
 		F4465AC02A92195D0042DE62 /* VideoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4465ABF2A92195D0042DE62 /* VideoStruct.swift */; };
 		F45131192A8F7FEE000F612E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F45131182A8F7FEE000F612E /* Kingfisher */; };
 		F451311B2A8F820D000F612E /* CreditStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451311A2A8F820D000F612E /* CreditStruct.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F40290A92A9B29B4001A985A /* StoryBoardOnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardOnBoardingViewController.swift; sourceTree = "<group>"; };
+		F40290AE2A9B5C30001A985A /* SimilarStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarStruct.swift; sourceTree = "<group>"; };
 		F41DC37E2A890D3F00147A68 /* TMDBMediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBMediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41DC3812A890D3F00147A68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F41DC3832A890D3F00147A68 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +51,6 @@
 		F4465AAB2A91ABA50042DE62 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		F4465AB92A91F7030042DE62 /* SimilarVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarVideoViewController.swift; sourceTree = "<group>"; };
 		F4465ABB2A91F7620042DE62 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		F4465ABD2A9218350042DE62 /* SimilarStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarStruct.swift; sourceTree = "<group>"; };
 		F4465ABF2A92195D0042DE62 /* VideoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStruct.swift; sourceTree = "<group>"; };
 		F451311A2A8F820D000F612E /* CreditStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditStruct.swift; sourceTree = "<group>"; };
 		F4E77F322A9382C000D1EBF1 /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F45131192A8F7FEE000F612E /* Kingfisher in Frameworks */,
+				F40290AD2A9B32BD001A985A /* SnapKit in Frameworks */,
 				F41DC39D2A8922A000147A68 /* SwiftyJSON in Frameworks */,
 				F41DC3A02A8922AE00147A68 /* Alamofire in Frameworks */,
 			);
@@ -102,6 +106,7 @@
 				F41DC38A2A890D4000147A68 /* Assets.xcassets */,
 				F41DC38C2A890D4000147A68 /* LaunchScreen.storyboard */,
 				F41DC38F2A890D4000147A68 /* Info.plist */,
+				F40290A92A9B29B4001A985A /* StoryBoardOnBoardingViewController.swift */,
 			);
 			path = TMDBMediaProject;
 			sourceTree = "<group>";
@@ -111,8 +116,8 @@
 			children = (
 				F4465AB92A91F7030042DE62 /* SimilarVideoViewController.swift */,
 				F4465ABB2A91F7620042DE62 /* APIManager.swift */,
-				F4465ABD2A9218350042DE62 /* SimilarStruct.swift */,
 				F4465ABF2A92195D0042DE62 /* VideoStruct.swift */,
+				F40290AE2A9B5C30001A985A /* SimilarStruct.swift */,
 			);
 			path = SimilarVideo;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				F41DC39C2A8922A000147A68 /* SwiftyJSON */,
 				F41DC39F2A8922AE00147A68 /* Alamofire */,
 				F45131182A8F7FEE000F612E /* Kingfisher */,
+				F40290AC2A9B32BD001A985A /* SnapKit */,
 			);
 			productName = TMDBMediaProject;
 			productReference = F41DC37E2A890D3F00147A68 /* TMDBMediaProject.app */;
@@ -170,6 +176,7 @@
 				F41DC39B2A8922A000147A68 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				F41DC39E2A8922AE00147A68 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F45131172A8F7FEE000F612E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F40290AB2A9B32BD001A985A /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = F41DC37F2A890D3F00147A68 /* Products */;
 			projectDirPath = "";
@@ -205,10 +212,11 @@
 				F41DC3A52A89257600147A68 /* TrendAPICollectionViewCell.swift in Sources */,
 				F4465ABA2A91F7030042DE62 /* SimilarVideoViewController.swift in Sources */,
 				F41DC3A22A89245500147A68 /* CreditAPIViewController.swift in Sources */,
-				F4465ABE2A9218350042DE62 /* SimilarStruct.swift in Sources */,
 				F4465ABC2A91F7620042DE62 /* APIManager.swift in Sources */,
 				F41DC3862A890D3F00147A68 /* TrendAPIViewController.swift in Sources */,
 				F41DC3822A890D3F00147A68 /* AppDelegate.swift in Sources */,
+				F40290AA2A9B29B4001A985A /* StoryBoardOnBoardingViewController.swift in Sources */,
+				F40290AF2A9B5C30001A985A /* SimilarStruct.swift in Sources */,
 				F41DC39A2A891F2400147A68 /* APIKey.swift in Sources */,
 				F41DC3842A890D3F00147A68 /* SceneDelegate.swift in Sources */,
 				F451311B2A8F820D000F612E /* CreditStruct.swift in Sources */,
@@ -436,6 +444,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F40290AB2A9B32BD001A985A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		F41DC39B2A8922A000147A68 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -463,6 +479,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F40290AC2A9B32BD001A985A /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F40290AB2A9B32BD001A985A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		F41DC39C2A8922A000147A68 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F41DC39B2A8922A000147A68 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

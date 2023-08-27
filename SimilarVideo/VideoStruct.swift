@@ -1,10 +1,3 @@
-//
-//  VideoStruct.swift
-//  TMDBMediaProject
-//
-//  Created by 정경우 on 2023/08/20.
-//
-
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
@@ -13,7 +6,7 @@
 import Foundation
 
 // MARK: - Info
-struct VideoInfo: Codable {
+struct VideoStruct: Codable {
     let id: Int
     let results: [VideoResult]
 }
@@ -49,3 +42,4 @@ enum ISO639_1: String, Codable {
 enum Site: String, Codable {
     case youTube = "YouTube"
 }
+
