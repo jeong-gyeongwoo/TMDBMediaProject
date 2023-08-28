@@ -159,7 +159,3 @@ extension TrendAPIViewController: UICollectionViewDelegate, UICollectionViewData
         
     }
 }
-
-
-
-// viewcontroller를 2개 붙일 수 없어서 여기선 구현이 어렵다?

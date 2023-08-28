@@ -29,9 +29,9 @@ class CreditAPIViewController: UIViewController {
         super.viewDidLoad()
         
         callRequest(movieID: movieID)
-        //creditAPITableView.rowHeight = UITableView.automaticDimension
-        //creditAPITableView.estimatedRowHeight = 200
-        creditAPITableView.rowHeight = 200
+        creditAPITableView.rowHeight = UITableView.automaticDimension
+        creditAPITableView.estimatedRowHeight = 200
+        //creditAPITableView.rowHeight = 200
         creditAPITableView.delegate = self
         creditAPITableView.dataSource = self
         
@@ -128,7 +128,3 @@ extension CreditAPIViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
-// 현상 automaticDimension, estimatedRowHeight
-//automatic 알아보기 접히는 이유
-// layout 설정 문제?? 

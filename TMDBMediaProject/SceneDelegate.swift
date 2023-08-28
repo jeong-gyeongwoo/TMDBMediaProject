@@ -16,19 +16,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-         guard let _ = (scene as? UIWindowScene) else { return }
+        //guard let _ = (scene as? UIWindowScene) else { return }
         //print(UserDefaults.standard.bool(forKey: "buttonClicked"))
-//        guard let scene = (scene as? UIWindowScene) else { return }
-//        window = UIWindow(windowScene: scene)
-//        if UserDefaults.standard.bool(forKey: "buttonClicked") == false {
-//            let vc = StoryBoardOnBoardingViewController()
-//            window?.rootViewController = vc
-//            window?.makeKeyAndVisible()
-//        } else {
-//            let vc = TrendAPIViewController()
-//            window?.rootViewController = vc
-//            window?.makeKeyAndVisible()
-//        }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
+        if UserDefaults.standard.bool(forKey: "buttonClicked") == false {
+            let vc = StoryBoardOnBoardingViewController()
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        } else {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "TrendAPIViewController") as! TrendAPIViewController
+            // as를 기준으로 앞은 스토리보드 관련 내용 뒤는 코드를 가져온다고 이해하면 된다
+            // let vc = TrendAPIViewController() -> 코드만 가져온다
+            
+            window?.rootViewController = UINavigationController(rootViewController: vc)
+            window?.makeKeyAndVisible()
+        }
         
     }
     
